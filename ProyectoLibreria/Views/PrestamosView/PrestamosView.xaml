@@ -1,0 +1,58 @@
+﻿<Window x:Class="ProyectoLibreria.Views.PrestamosView.PrestamosView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoLibreria.Views.PrestamosView"
+        mc:Ignorable="d"
+        Title="Generacion de Prestamos" Height="412.34" Width="711.898">
+    <StackPanel>
+        <DockPanel>
+            <TextBlock Name="titulo1" TextWrapping="WrapWithOverflow" Width="350" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" IsEnabled="False">
+                Favor de anotar los campos para generar un prestamo de libros
+            </TextBlock>
+            <DockPanel HorizontalAlignment="Right" Height="56" >
+                <Button Name="btn1" Height="40" HorizontalAlignment="Right" Width="120" Margin="3,8,3,3" Click="Btn1_Click" >
+                    <Button.Background>
+                        <ImageBrush Stretch="None" ImageSource="/ProyectoLibreria;component/Imagenes/icons8-checkmark-24.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Name="btn2" Height="40" HorizontalAlignment="Right" Width="120" Margin="3,8,3,3" Click="Btn2_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/ProyectoLibreria;component/Imagenes/icons8-delete-24.png" Stretch="None"/>
+                    </Button.Background>
+                </Button>
+            </DockPanel>
+        </DockPanel>
+        <DockPanel FlowDirection="LeftToRight">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Folio de Credencial:" Margin="10,0,0,0" Height="38" FontSize="16" HorizontalAlignment="Left" />
+                    <TextBox Name="Folio_Credencial" MaxLength="10" Margin="10,0,0,0" Height="30" FontSize="14" HorizontalAlignment="Left" Width="160" LostFocus="Folio_Credencial_LostFocus"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Nombre del Usuario:" Margin="10,0,0,0" Height="38" FontSize="16" HorizontalAlignment="Left" />
+                    <TextBox Name="Nombre_Usuario" Margin="10,0,0,0" Height="30" FontSize="14" HorizontalAlignment="Left" Width="400" IsReadOnly="True" />
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+        <DockPanel FlowDirection="LeftToRight">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Clave del Libro:" Margin="10,0,0,0" Height="38" FontSize="16" HorizontalAlignment="Left" />
+                    <TextBox Name="Clave_Libro" MaxLength="7" Margin="10,0,0,0" Height="30" FontSize="14" HorizontalAlignment="Left" Width="160" IsReadOnly="True" />
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+        <DockPanel Margin="10">
+            <DataGrid Name="dataGrid1" VerticalAlignment="Top" AutoGenerateColumns="False" SelectionMode="Extended" IsReadOnly="True" MouseDoubleClick="DataGrid1_MouseDoubleClick_1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Clave del Libro" Binding="{Binding Clave_Libro}" />
+                    <DataGridTextColumn Header="Titulo del Libro" Binding="{Binding Titulo_Libro}" />
+                    <DataGridTextColumn Header="Autor del Libro" Binding="{Binding Autor_Libro}" />
+                    <DataGridTextColumn Header="Estado del Libro" Binding="{Binding Estado}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </StackPanel>
+</Window>

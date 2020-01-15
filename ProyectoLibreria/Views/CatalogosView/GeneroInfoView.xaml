@@ -1,0 +1,53 @@
+﻿<Window x:Class="ProyectoLibreria.Views.CatalogosView.GeneroInfoView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoLibreria.Views.CatalogosView"
+        mc:Ignorable="d"
+        Title="Catalogo de Generos" Width="576">
+    <StackPanel Margin="0,0,2,7">
+        <DockPanel Height="56">
+            <Label Name="titulo1" Content="Datos del Genero" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" RenderTransformOrigin="-1.754,-1.614" FontSize="18" FontWeight="Bold"/>
+            <DockPanel HorizontalAlignment="Right" Height="56" >
+                <Button Name="btn1" Height="40" HorizontalAlignment="Right" Width="70" Margin="3,8,3,3" Click="Btn1_Click" >
+                    <Button.Background>
+                        <ImageBrush Stretch="None" ImageSource="/ProyectoLibreria;component/Imagenes/icons8-plus-24.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Name="btn2" Height="40" HorizontalAlignment="Right" Width="70" Margin="3,8,3,3" Click="Btn2_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/ProyectoLibreria;component/Imagenes/icons8-checkmark-24.png" Stretch="None"/>
+                    </Button.Background>
+                </Button>
+                <Button Name="btn3" Height="40" HorizontalAlignment="Right" Width="70" Margin="3,8,3,3" Click="Btn3_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/ProyectoLibreria;component/Imagenes/icons8-pencil-drawing-24.png" Stretch="None"/>
+                    </Button.Background>
+                </Button>
+                <Button Name="btn4" Height="40" HorizontalAlignment="Right" Width="70" Margin="3,8,3,3" Click="Btn4_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/ProyectoLibreria;component/Imagenes/icons8-delete-24.png" Stretch="None"/>
+                    </Button.Background>
+                </Button>
+                <Button Name="btn5" Height="40" HorizontalAlignment="Right" Width="70" Margin="3,8,3,3" Click="Btn5_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/ProyectoLibreria;component/Imagenes/icons8-refresh-24.png" Stretch="None"/>
+                    </Button.Background>
+                </Button>
+            </DockPanel>
+        </DockPanel>
+        <Label Name="titulo2" Content="Nombre del Genero:" Margin="10,0,0,0" Height="38" FontSize="16" HorizontalAlignment="Left" />
+        <TextBox Name="Nombre_Genero" Margin="10,0,0,0" Height="30" FontSize="14" HorizontalAlignment="Left" Width="514"/>
+        <Label Name="titulo3" Content="Clave del Genero:" Margin="10,0,0,0" Height="38" FontSize="16" HorizontalAlignment="Left" />
+        <TextBox Name="Clave_Genero" Margin="10,0,0,0" Height="30" FontSize="14" HorizontalAlignment="Left" Width="320" />
+        <DockPanel Margin="10">
+            <DataGrid Name="dataGrid1" VerticalAlignment="Top" AutoGenerateColumns="False" SelectionMode="Extended" IsReadOnly="True" MouseDoubleClick="DataGrid1_MouseDoubleClick_1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nombre del Genero" Binding="{Binding Nombre_Genero}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Clave del Genero" Binding="{Binding Clave_Genero}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </StackPanel>
+</Window>

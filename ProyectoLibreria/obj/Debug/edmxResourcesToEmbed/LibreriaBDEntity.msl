@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibreriaBDModelStoreContainer" CdmEntityContainer="LibreriaBDEntities">
+    <EntitySetMapping Name="Genero">
+      <EntityTypeMapping TypeName="LibreriaBDModel.Genero">
+        <MappingFragment StoreEntitySet="Genero">
+          <ScalarProperty Name="Nombre_Genero" ColumnName="Nombre_Genero" />
+          <ScalarProperty Name="Clave_Genero" ColumnName="Clave_Genero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Libros">
+      <EntityTypeMapping TypeName="LibreriaBDModel.Libros">
+        <MappingFragment StoreEntitySet="Libros">
+          <ScalarProperty Name="Clave_Genero" ColumnName="Clave_Genero" />
+          <ScalarProperty Name="Clave_Pasillo" ColumnName="Clave_Pasillo" />
+          <ScalarProperty Name="Clave_Libro" ColumnName="Clave_Libro" />
+          <ScalarProperty Name="Autor_Libro" ColumnName="Autor_Libro" />
+          <ScalarProperty Name="Titulo_Libro" ColumnName="Titulo_Libro" />
+          <ScalarProperty Name="Fecha_Publicacion" ColumnName="Fecha_Publicacion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LibrosPrestamos">
+      <EntityTypeMapping TypeName="LibreriaBDModel.LibrosPrestamos">
+        <MappingFragment StoreEntitySet="LibrosPrestamos">
+          <ScalarProperty Name="Folio_Credencial" ColumnName="Folio_Credencial" />
+          <ScalarProperty Name="Clave_Libro" ColumnName="Clave_Libro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pasillos">
+      <EntityTypeMapping TypeName="LibreriaBDModel.Pasillos">
+        <MappingFragment StoreEntitySet="Pasillos">
+          <ScalarProperty Name="Id_Pasillo" ColumnName="Id_Pasillo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuariosLibreria">
+      <EntityTypeMapping TypeName="LibreriaBDModel.UsuariosLibreria">
+        <MappingFragment StoreEntitySet="UsuariosLibreria">
+          <ScalarProperty Name="Nombre_Usuario" ColumnName="Nombre_Usuario" />
+          <ScalarProperty Name="Fecha_Registro" ColumnName="Fecha_Registro" />
+          <ScalarProperty Name="Folio_Credencial" ColumnName="Folio_Credencial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,18 @@
+﻿<Window x:Class="ProyectoLibreria.Views.CatalogosView.CatalogosMenuView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoLibreria.Views.CatalogosView"
+        mc:Ignorable="d"
+        Title="Menu de Catalogos" Height="356.068" Width="300">
+    <StackPanel>
+        <DockPanel>
+            <Label Content="Lista de Catalogos Disponibles" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" />
+        </DockPanel>
+        <Button Name="btn1" Content="Catalogo de Generos" HorizontalAlignment="Center" FontSize="18" Width="200" Height="50" Margin="10" Click="Btn1_Click" />
+        <Button Name="btn2" Content="Pasillos de la Libreria" HorizontalAlignment="Center" FontSize="18" Width="200" Height="50" Margin="10" Click="Btn2_Click" />
+        <Button Name="btn3" Content="Catalogos de Libros" HorizontalAlignment="Center" FontSize="18" Width="200" Height="50" Margin="10" Click="Btn3_Click" />
+        <Button Name="btn4" Content="Usuarios de la Libreria" HorizontalAlignment="Center" FontSize="18" Width="200" Height="50" Margin="10" Click="Btn4_Click" />
+    </StackPanel>
+</Window>

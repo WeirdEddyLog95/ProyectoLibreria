@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibreriaBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Genero">
+    <Key>
+      <PropertyRef Name="Nombre_Genero" />
+      <PropertyRef Name="Clave_Genero" />
+    </Key>
+    <Property Name="Nombre_Genero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Clave_Genero" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Libros">
+    <Key>
+      <PropertyRef Name="Clave_Genero" />
+      <PropertyRef Name="Clave_Pasillo" />
+      <PropertyRef Name="Clave_Libro" />
+      <PropertyRef Name="Autor_Libro" />
+      <PropertyRef Name="Titulo_Libro" />
+      <PropertyRef Name="Fecha_Publicacion" />
+      <PropertyRef Name="Estado" />
+    </Key>
+    <Property Name="Clave_Genero" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Clave_Pasillo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Clave_Libro" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Autor_Libro" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Titulo_Libro" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_Publicacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Estado" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsuariosLibreria">
+    <Key>
+      <PropertyRef Name="Nombre_Usuario" />
+      <PropertyRef Name="Fecha_Registro" />
+      <PropertyRef Name="Folio_Credencial" />
+    </Key>
+    <Property Name="Nombre_Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_Registro" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Folio_Credencial" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="LibreriaBDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Genero" EntityType="Self.Genero" />
+    <EntitySet Name="Libros" EntityType="Self.Libros" />
+    <EntitySet Name="UsuariosLibreria" EntityType="Self.UsuariosLibreria" />
+  </EntityContainer>
+</Schema>

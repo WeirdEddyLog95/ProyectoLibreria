@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibreriaBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'C:\USERS\DELL\SOURCE\REPOS\PROYECTOLIBRERIA\PROYECTOLIBRERIA\LIBRERIABD.MDF.dbo.Genero' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Genero">
+    <Key>
+      <PropertyRef Name="Nombre_Genero" />
+      <PropertyRef Name="Clave_Genero" />
+    </Key>
+    <Property Name="Nombre_Genero" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Clave_Genero" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'C:\USERS\DELL\SOURCE\REPOS\PROYECTOLIBRERIA\PROYECTOLIBRERIA\LIBRERIABD.MDF.dbo.Libros' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Libros">
+    <Key>
+      <PropertyRef Name="Clave_Genero" />
+      <PropertyRef Name="Clave_Pasillo" />
+      <PropertyRef Name="Clave_Libro" />
+      <PropertyRef Name="Autor_Libro" />
+      <PropertyRef Name="Titulo_Libro" />
+      <PropertyRef Name="Fecha_Publicacion" />
+      <PropertyRef Name="Estado" />
+    </Key>
+    <Property Name="Clave_Genero" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Clave_Pasillo" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="Clave_Libro" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Autor_Libro" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Titulo_Libro" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="Fecha_Publicacion" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="11" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'C:\USERS\DELL\SOURCE\REPOS\PROYECTOLIBRERIA\PROYECTOLIBRERIA\LIBRERIABD.MDF.dbo.LibrosPrestamos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="LibrosPrestamos">
+    <Key>
+      <PropertyRef Name="Folio_Credencial" />
+      <PropertyRef Name="Clave_Libro" />
+    </Key>
+    <Property Name="Folio_Credencial" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="Clave_Libro" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'C:\USERS\DELL\SOURCE\REPOS\PROYECTOLIBRERIA\PROYECTOLIBRERIA\LIBRERIABD.MDF.dbo.Pasillos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Pasillos">
+    <Key>
+      <PropertyRef Name="Id_Pasillo" />
+    </Key>
+    <Property Name="Id_Pasillo" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'C:\USERS\DELL\SOURCE\REPOS\PROYECTOLIBRERIA\PROYECTOLIBRERIA\LIBRERIABD.MDF.dbo.UsuariosLibreria' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="UsuariosLibreria">
+    <Key>
+      <PropertyRef Name="Nombre_Usuario" />
+      <PropertyRef Name="Fecha_Registro" />
+      <PropertyRef Name="Folio_Credencial" />
+    </Key>
+    <Property Name="Nombre_Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fecha_Registro" Type="date" Nullable="false" />
+    <Property Name="Folio_Credencial" Type="varchar" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="LibreriaBDModelStoreContainer">
+    <EntitySet Name="Genero" EntityType="Self.Genero" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Genero].[Nombre_Genero] AS [Nombre_Genero], 
+    [Genero].[Clave_Genero] AS [Clave_Genero]
+    FROM [dbo].[Genero] AS [Genero]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Libros" EntityType="Self.Libros" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Libros].[Clave_Genero] AS [Clave_Genero], 
+    [Libros].[Clave_Pasillo] AS [Clave_Pasillo], 
+    [Libros].[Clave_Libro] AS [Clave_Libro], 
+    [Libros].[Autor_Libro] AS [Autor_Libro], 
+    [Libros].[Titulo_Libro] AS [Titulo_Libro], 
+    [Libros].[Fecha_Publicacion] AS [Fecha_Publicacion], 
+    [Libros].[Estado] AS [Estado]
+    FROM [dbo].[Libros] AS [Libros]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="LibrosPrestamos" EntityType="Self.LibrosPrestamos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [LibrosPrestamos].[Folio_Credencial] AS [Folio_Credencial], 
+    [LibrosPrestamos].[Clave_Libro] AS [Clave_Libro]
+    FROM [dbo].[LibrosPrestamos] AS [LibrosPrestamos]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Pasillos" EntityType="Self.Pasillos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Pasillos].[Id_Pasillo] AS [Id_Pasillo]
+    FROM [dbo].[Pasillos] AS [Pasillos]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="UsuariosLibreria" EntityType="Self.UsuariosLibreria" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [UsuariosLibreria].[Nombre_Usuario] AS [Nombre_Usuario], 
+    [UsuariosLibreria].[Fecha_Registro] AS [Fecha_Registro], 
+    [UsuariosLibreria].[Folio_Credencial] AS [Folio_Credencial]
+    FROM [dbo].[UsuariosLibreria] AS [UsuariosLibreria]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
